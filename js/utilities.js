@@ -1,6 +1,7 @@
 // common function for spinners or loader
 
 const toggleLoader = (isloading) => {
+
   const loader = document.getElementById("loader");
   if (isloading) {
     loader.classList.remove("d-none");
@@ -11,9 +12,11 @@ const toggleLoader = (isloading) => {
 
 
 
+
 // data limite and process searech with common function
 
 const processSearch = (dataLimite) => {
+
   // start loade
   toggleLoader(true);
 
