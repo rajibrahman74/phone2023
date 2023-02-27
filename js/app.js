@@ -73,18 +73,6 @@ document.getElementById("search-btn").addEventListener("click", function () {
 
 
 
-// search field press enter key then show result
-
-document.getElementById('search-field').addEventListener('keypress', function (event) {
-
-  if (event.key === 'Enter') {
-    processSearch(15);
-  }
-
-});
-
-
-
 // show all button with function
 
 document.getElementById("show-all-btn").addEventListener("click", function () {
@@ -92,7 +80,6 @@ document.getElementById("show-all-btn").addEventListener("click", function () {
   processSearch();
 
 });
-
 
 
 
@@ -106,7 +93,6 @@ const loadPhoneDetails = async (id) => {
   const data = await res.json();
   displayPhoneDetails(data.data);
 }
-
 
 
 // displayd phone details with function
@@ -124,10 +110,18 @@ const displayPhoneDetails = phone => {
   <p>Storage: ${phone.mainFeatures ? phone.mainFeatures.storage : "No Storage fetures"}</p>
   <p>Others: Bluetooth: ${phone.others ? phone.others.Bluetooth : "No Bluetooth fetures"}</p>
   `;
-}
+};
 
 
+// search field press enter key then show result
+
+document.getElementById('search-field').addEventListener('keypress', function (event) {
+
+  if (event.key === 'Enter') {
+    processSearch(15);
+  }
+
+});
 
 
-
-loadPhones("samsung");
+loadPhones("phone");
