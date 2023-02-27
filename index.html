@@ -37,8 +37,8 @@
         Search phones field
         -->
         <div class="input-group mb-3 w-25 mx-auto">
-            <input id="search-field" type="text" class="form-control py-2 px-3" placeholder="Search your phone. . ." aria-label="Recipient's username"
-                aria-describedby="button-addon2">
+            <input id="search-field" type="text" class="form-control py-2 px-3" placeholder="Search your phone. . ."
+                aria-label="Recipient's username" aria-describedby="button-addon2">
             <button class="btn btn-primary font-bold" type="button" id="search-btn">Search</button>
         </div>
 
@@ -53,9 +53,20 @@
             <!-- 
                 no found validation if user search is not a valid phone name
              -->
-             <div id="no-found-message" class="w-25 mx-auto d-none mt-3">
+            <div id="no-found-message" class="w-25 mx-auto d-none mt-3">
                 <h3 class="text-warning rounded-5 text-center">Your phone is not found</h3>
-             </div>
+            </div>
+        </section>
+
+        <!-- 
+            Spinners or Loader
+         -->
+        <section id="loader" class="d-none">
+            <div style="height: 40vh;" class="d-flex justify-content-center align-items-center">
+                <div class="spinner-border text-success" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -69,6 +80,7 @@
         JS file is associated with HTML
      -->
     <script src="js/app.js"></script>
+    <script src="js/utilities.js"></script>
 </body>
 
 </html>

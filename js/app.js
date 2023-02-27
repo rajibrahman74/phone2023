@@ -1,6 +1,7 @@
 // phone data load with function
 
 const loadPhones = async (searchFieldValue) => {
+  
   const url = `https://openapi.programming-hero.com/api/phones?search=${searchFieldValue}`;
   const res = await fetch(url);
   const data = await res.json();
@@ -13,15 +14,17 @@ const loadPhones = async (searchFieldValue) => {
 // display phones with function
 
 const displayPhones = (phones) => {
-  
+
   console.log(phones);
   const phonesContainer = document.getElementById("phones-container");
-  phonesContainer.innerText = '';
+  phonesContainer.innerText = "";
 
   // display only 15 phones
+
   phones = phones.slice(0, 15);
 
   // no-found message
+
   const noPhoneFound = document.getElementById("no-found-message");
   if (phones.length === 0) {
     noPhoneFound.classList.remove("d-none");
@@ -29,9 +32,8 @@ const displayPhones = (phones) => {
     noPhoneFound.classList.add("d-none");
   }
 
-
-
   // display all phones in UI
+
   phones.forEach((phone) => {
     const phoneDiv = document.createElement("div");
     phoneDiv.classList.add("col");
@@ -48,18 +50,26 @@ const displayPhones = (phones) => {
     `;
     phonesContainer.appendChild(phoneDiv);
   });
+
+  // stop loader
+
+  toggleLoader(false);
 };
+
 
 
 
 // search phone field with function
 
 document.getElementById("search-btn").addEventListener("click", function () {
+
+  // start loade
+  toggleLoader(true);
+
   const searchField = document.getElementById("search-field");
   const searchFieldValue = searchField.value;
   loadPhones(searchFieldValue);
 });
-
 
 
 
