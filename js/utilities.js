@@ -8,3 +8,16 @@ const toggleLoader = (isloading) => {
     loader.classList.add("d-none");
   }
 };
+
+
+
+// data limite and process searech with common function
+
+const processSearch = (dataLimite) => {
+  // start loade
+  toggleLoader(true);
+
+  const searchField = document.getElementById("search-field");
+  const searchFieldValue = searchField.value;
+  loadPhones(searchFieldValue, dataLimite);
+};

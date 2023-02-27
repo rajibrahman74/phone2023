@@ -5,8 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>phone - hunter 2023</title>
-
-
     <!-- 
         Favicon is associated with HTML
      -->
@@ -19,20 +17,16 @@
 </head>
 
 <body>
-
     <!-- 
         Header
      -->
     <header>
         <h2 class="text-center my-4 font-bold">Welcome to phone hunter - 2023</h2>
     </header>
-
     <!-- 
         Main
-      -->
-
+     -->
     <main class="container">
-
         <!-- 
         Search phones field
         -->
@@ -41,7 +35,6 @@
                 aria-label="Recipient's username" aria-describedby="button-addon2">
             <button class="btn btn-primary font-bold" type="button" id="search-btn">Search</button>
         </div>
-
         <!-- 
             Diplay phones
          -->
@@ -49,15 +42,21 @@
             <div id="phones-container" class="row row-cols-1 row-cols-md-3 g-4">
 
             </div>
-
             <!-- 
                 no found validation if user search is not a valid phone name
              -->
             <div id="no-found-message" class="w-25 mx-auto d-none mt-3">
                 <h3 class="text-warning rounded-5 text-center">Your phone is not found</h3>
             </div>
-        </section>
 
+            <!-- 
+                Show all button
+             -->
+             <div id="show-all" class="my-5 text-center d-none">
+                <button id="show-all-btn" class="btn btn-primary">Show all</button>
+             </div>
+             
+        </section>
         <!-- 
             Spinners or Loader
          -->
@@ -69,7 +68,6 @@
             </div>
         </section>
     </main>
-
     <!-- 
         Bootstrap js cdn linkj is associated with HTML
      -->
