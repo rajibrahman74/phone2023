@@ -48,7 +48,7 @@ const displayPhones = (phones, dataLimite) => {
         <div class="card-body">
             <h5 class="card-title">${phone.phone_name}</h5>
             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <button onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-primary rounded-3">Show Details</button>
+            <button onclick="loadPhoneDetails('${phone.slug}')" class="btn btn-primary rounded-3" data-bs-toggle="modal" data-bs-target="#phoneDetailModal">Show Details</button>
         </div>
     </div>
     `;
@@ -96,6 +96,7 @@ document.getElementById("show-all-btn").addEventListener("click", function () {
 
 
 
+
 // load phone details with function
 
 const loadPhoneDetails = async (id) => {
@@ -103,12 +104,30 @@ const loadPhoneDetails = async (id) => {
   const url = `https://openapi.programming-hero.com/api/phone/${id}`;
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data.data);
+  displayPhoneDetails(data.data);
+}
 
+
+
+// displayd phone details with function
+
+const displayPhoneDetails = phone => {
+
+  const phoneDetailsTitle = document.getElementById("phoneDetailModalLabel");
+  phoneDetailsTitle.innerText = phone.name;
+
+  const phoneDetails = document.getElementById("phoine-details");
+  phoneDetails.style.margin = "0 auto";
+  phoneDetails.innerHTML = `
+  <img src="${phone.image}">
+  <p class="mt-4">${phone.releaseDate ? phone.releaseDate: "No Release Date Found"}</p>
+  <p>Storage: ${phone.mainFeatures ? phone.mainFeatures.storage : "No Storage fetures"}</p>
+  <p>Others: Bluetooth: ${phone.others ? phone.others.Bluetooth : "No Bluetooth fetures"}</p>
+  `;
 }
 
 
 
 
 
-// loadPhones();
+loadPhones("samsung");
